@@ -1,8 +1,23 @@
-def mutate(a_list):
-    b_list = []
-    for item in a_list:
-        new_item = item * 2
-        b_list.append(new_item)
-    print(b_list)
+import random
+namesList = [
+    "Ayaan", "Zara", "Hamza", "Elena",
+    "Rayan", "Sophia", "Daniyal", "Maya",
+    "Ibrahim", "Lina", "Arham", "Ava",
+    "Saad", "Noor", "Hassan", "Amelia"
+]
+printList = []
 
-mutate([1,2,3,5,8,13])
+for _ in range(0, len(namesList)):
+    printList.append("_")
+print(printList)
+
+
+for names in range(0,len(printList)):
+    randomName = random.choice(namesList)
+    if randomName not in printList:
+        printList[names] = randomName
+        print(printList)
+    else:
+        randomName = random.choice(namesList)
+        
+
