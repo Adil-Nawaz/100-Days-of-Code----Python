@@ -7,7 +7,7 @@ digit1 = int(number[0])
 digit2 = int(number[1])
 print(f"Sum of 2 digit number {number} is: {digit1+ digit2}") 
 
-'''
+
 
 print("******** WELCOME TO THE PyPASSWORD GENERATOR PROGRAM ********")
 import random
@@ -42,3 +42,21 @@ random.shuffle(generatedPass)
 finalPass = ""
 
 print(finalPass.join(generatedPass))
+'''
+from data import question_data
+from question_model import Question
+from quiz_brain import QuizBrain
+question_Bank = []
+
+for question in question_data:
+    questionText = question["text"]
+    questionAnswer = question["answer"]
+    newquestion = Question(q_text=questionText, q_answer=questionAnswer)
+    question_Bank.append(newquestion)
+
+quiz = QuizBrain(q_list=question_Bank)
+while quiz.stillHasQuestions():
+    quiz.nextQuestion()
+
+print("Congratulations! You have completed all questions")
+print(f"Your final score is: {quiz.score} / {len(question_Bank)}")
