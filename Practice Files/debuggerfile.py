@@ -1,32 +1,29 @@
-import random
-lettersList = [
-'a','b','c','d','e','f','g','h','i','j','k','l','m',
-'n','o','p','q','r','s','t','u','v','w','x','y','z',
-'A','B','C','D','E','F','G','H','I','J','K','L','M',
-'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
-]
-numbersList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbolsList = [
-'!', '@', '#', '$', '%', '^', '&', '*', '(', ')',
-'-', '_', '=', '+', '[', ']', '{', '}', ';', ':',
-"'", '"', ',', '.', '<', '>', '/', '?', '\\', '|',
-'`', '~'
-]
-letters = int(input("How many letters would you like in your password? "))
-symbols = int(input("How many symbols would you like in your password? "))
-numbers = int(input("How many numbers would you like in your password? "))
 
-generatedPass = []
-random.shuffle(lettersList)
-random.shuffle(numbersList)
-random.shuffle(symbolsList)
-for letter in range(0,letters):
-    generatedPass.append(lettersList[letter])
-for symbol in range(0,symbols):
-    generatedPass.append(symbolsList[symbol])
-for number in range(0, numbers):
-    generatedPass.append(numbersList[number])
-random.shuffle(generatedPass)
-finalPass = ""
-finalPass.join(generatedPass)
-print(finalPass)
+import turtle
+turtle.colormode(255)
+from turtle import Turtle, Screen
+
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (255, 165, 0), (128, 0, 128), (0, 255, 255), 
+          (255, 192, 203), (75, 0, 130), (60, 179, 113)]
+
+def shapeBuilder(object, numberOfCorners):
+    for _ in range(numberOfCorners):
+        object.forward(100)
+        object.right(360/numberOfCorners)
+
+#Drawing geometrical shapes
+tim2 = Turtle()
+tim2.shape("turtle")
+tim2.color(255,100,50)
+colorNo = 0
+for _ in range(3, 11):
+    tim2.color(colors[colorNo])
+    colorNo+=1
+    shapeBuilder(tim2, _)
+    
+    
+    
+    
+
+screen = Screen()
+screen.exitonclick()
