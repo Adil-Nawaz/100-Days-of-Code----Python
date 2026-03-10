@@ -62,41 +62,35 @@ print("Congratulations! You have completed all questions")
 print(f"Your final score is: {quiz.score} / {len(question_Bank)}")
 '''
 
-from turtle import Turtle, Screen
-import random
-endOfgame = False
-colors = ["red", "blue", "green", "yellow", "orange", "purple"]
-screen = Screen()
-screen.setup(width=500, height=400)
-ypos = -100
-turtlesList = []
-userChoice = screen.textinput(title="Which turtle is going to win? ", prompt="Enter the color of turtle: ")
-for turtles in range(0, len(colors)):
-    tim = Turtle(shape="turtle")
-    tim.penup()
-    tim.color(colors[turtles])
-    tim.goto(-230,ypos)
-    ypos += 40
-    turtlesList.append(tim)
+# from turtle import Turtle, Screen
+# import random
+# endOfgame = False
+# colors = ["red", "blue", "green", "yellow", "orange", "purple"]
+# screen = Screen()
+# screen.setup(width=500, height=400)
+# ypos = -100
+# turtlesList = []
+# userChoice = screen.textinput(title="Which turtle is going to win? ", prompt="Enter the color of turtle: ")
+# for turtles in range(0, len(colors)):
+#     tim = Turtle(shape="turtle")
+#     tim.penup()
+#     tim.color(colors[turtles])
+#     tim.goto(-230,ypos)
+#     ypos += 40
+#     turtlesList.append(tim)
 
-if userChoice:
-    endOfgame = True
+# if userChoice:
+#     endOfgame = True
 
-while endOfgame:
-    for i in turtlesList:
-        if i.xcor() > 230:
-            endOfgame = False
-            if i.pencolor() == userChoice:
-                print(f"You have won {i.pencolor()} turtle has won")
-            else:
-                print(f"You have lost {i.pencolor()} turtle has won")
-        randDist = random.randint(0,10)
-        i.forward(randDist)
+# while endOfgame:
+#     for i in turtlesList:
+#         if i.xcor() > 230:
+#             endOfgame = False
+#             if i.pencolor() == userChoice:
+#                 print(f"You have won {i.pencolor()} turtle has won")
+#             else:
+#                 print(f"You have lost {i.pencolor()} turtle has won")
+#         randDist = random.randint(0,10)
+#         i.forward(randDist)
+#screen.exitonclick()
 
-
-
-
-
-
-
-screen.exitonclick()
