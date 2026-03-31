@@ -9,6 +9,7 @@ class Snake:
         self.snakeDots = []
         self.xpos = 0 
         self.createSnake()
+        self.head = self.snakeDots[0]
 
 
     def createSnake(self):
@@ -20,24 +21,24 @@ class Snake:
             self.xpos -= 20
             self.snakeDots.append(snake)
 
-
+#This code is mind blowing understand it in lecture 184 to know the concept of moving objects
     def move(self):
         for segments in range(len(self.snakeDots)-1,0,-1):
             new_x = self.snakeDots[segments-1].xcor()
             new_y = self.snakeDots[segments-1].ycor()
             self.snakeDots[segments].goto(new_x, new_y)
-        self.snakeDots[0].forward(20)
-
+             #till this code all segments will be placed at one place because we are not moving the first segment fwd
+        self.snakeDots[0].forward(20) #this code will fwd first segment forward and above code will change the positions of other blocks
 
     def moveUp(self):
-        if self.snakeDots[0].heading() != DOWN:
-            self.snakeDots[0].setheading(UP)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
     def movedown(self):
-        if self.snakeDots[0].heading() != UP:
-           self.snakeDots[0].setheading(DOWN)
+        if self.head.heading() != UP:
+           self.head.setheading(DOWN)
     def moveleft(self):
-        if self.snakeDots[0].heading() != RIGHT:
-           self.snakeDots[0].setheading(LEFT)
+        if self.head.heading() != RIGHT:
+           self.head.setheading(LEFT)
     def moveright(self):
-        if self.snakeDots[0].heading() != LEFT:
-            self.snakeDots[0].setheading(RIGHT)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
